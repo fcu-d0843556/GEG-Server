@@ -5,7 +5,6 @@ import com.model.User;
 import com.model.UserEvent;
 import com.model.UserPoints;
 import com.utils.MathHelper;
-import jdk.nashorn.internal.runtime.ParserException;
 
 import org.bson.Document;
 import org.springframework.context.annotation.ComponentScan;
@@ -91,8 +90,8 @@ public class ActivityService {
         int gameCount = 0;
         List<Document> allGameCounts = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date startEventTime;
-        Date pointerEventTime;
+        Date startEventTime = null;
+        Date pointerEventTime = null;
         List<UserEvent> allEvents = userEventService.getUserEvents(username);
 
         if( allEvents.size() > 0) {
@@ -102,16 +101,16 @@ public class ActivityService {
                 startEventTime = sdf.parse(event.getTime());
                 pointerEventTime = sdf.parse(event.getTime());
             } catch (Exception error) {
-                throw new ParserException(error.getMessage());
+                System.out.println(error.getMessage());
             }
 
             for (int i = 1; i < allEvents.size(); i++) {
                 UserEvent event = allEvents.get(i);
-                Date nextEventTime;
+                Date nextEventTime = null;
                 try {
                     nextEventTime = sdf.parse(event.getTime());
                 } catch (Exception error) {
-                    throw new ParserException(error.getMessage());
+                    System.out.println(error.getMessage());
                 }
                 int diffInSeconds = (int) ((nextEventTime.getTime() - pointerEventTime.getTime())
                         / (1000));
@@ -121,7 +120,7 @@ public class ActivityService {
                     try {
                         pointerEventTime = sdf.parse(event.getTime());
                     } catch (Exception error) {
-                        throw new ParserException(error.getMessage());
+                        System.out.println(error.getMessage());
                     }
                 } else { // event diff > 30 minutes
                     try {
@@ -134,7 +133,7 @@ public class ActivityService {
                         startEventTime = sdf.parse(event.getTime());
                         pointerEventTime = sdf.parse(event.getTime());
                     } catch (Exception error) {
-                        throw new ParserException(error.getMessage());
+                        System.out.println(error.getMessage());
                     }
                 }
             }

@@ -26,7 +26,9 @@ public class Application extends SpringBootServletInitializer {
         return application.sources(Application.class);
     }
 
-
-
+    @RequestMapping("/test")
+	public String world(){
+		return "Hello Sprint boot Docker";
+	}
 
 }
