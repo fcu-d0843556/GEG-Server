@@ -74,6 +74,7 @@ public class UserService {
             return new LoginResult(false,"","cannot find user");
         }
         if(result){
+            System.out.println( username + " login success");
             return new LoginResult(true,jwtHandler.generateToken(username),"login success");
         }
         else{

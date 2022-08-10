@@ -26,7 +26,10 @@ public class UserEventController {
                                                   @RequestParam("username") String username,
                                                   @RequestParam("eventName") String eventName,
                                                   @RequestParam("eventContent") String eventContent) {
-
+        System.out.println("logUserEvent : ");
+        System.out.println("username : " + username);
+        System.out.println("eventName : " + eventName);
+        System.out.println("eventContent : " + eventContent);                               
         Object result = userEventService.logUserEvent(request, username, eventName, eventContent);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
@@ -37,7 +40,8 @@ public class UserEventController {
      */
     @GetMapping("getUserEvents")
     public ResponseEntity<Object> getUserEvents(@RequestParam("username") String username) {
-
+        System.out.println("getUserEvents : ");
+        System.out.println("username : " + username);
         Object result = userEventService.getUserEvents(username);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

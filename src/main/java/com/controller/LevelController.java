@@ -22,6 +22,12 @@ public class LevelController {
             @RequestParam("lineCost") int lineCost,
             @RequestParam("level") int level
     ) {
+        System.out.println("logLevelRecord : ");
+        System.out.println("username : " + username);
+        System.out.println("timeCost : " + timeCost);
+        System.out.println("lineCost : " + lineCost);
+        System.out.println("level : " + level);
+
         ResponseEntity<Object> response;
         Object result = levelService.logLevelRecord(username, timeCost, lineCost, level);
         response = new ResponseEntity<>(result, HttpStatus.OK);
@@ -30,6 +36,7 @@ public class LevelController {
 
     @GetMapping("/getLevelLeaderboard")
     public ResponseEntity<Object> getLevelLeaderboard(@RequestParam("level") int level) {
+        System.out.println("getLevelLeaderboard level: " + level);
         return new ResponseEntity<>(levelService.getLevelLeaderboard(level), HttpStatus.OK);
     }
 }

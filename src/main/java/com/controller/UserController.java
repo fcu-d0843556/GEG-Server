@@ -22,6 +22,7 @@ public class UserController {
 
     @GetMapping("/getAllUser")
     public ResponseEntity<Object> getAllUser() {
+        System.out.println("getAllUser");
         ResponseEntity<Object> response;
         try {
             List<User> result = userService.findAll();
@@ -40,6 +41,10 @@ public class UserController {
             @RequestParam("username") String username,
             @RequestParam("password") String password
     ) {
+        System.out.println("createUser : ");
+        System.out.println("name : " + name);
+        System.out.println("username : " + username);
+        System.out.println("password : " + password);
         ResponseEntity<Object> response;
         try {
             Object result = userService.createUser(name,username,password);
@@ -55,6 +60,9 @@ public class UserController {
             @RequestParam("username") String username,
             @RequestParam("password") String password
     ) {
+        System.out.println("login : ");
+        System.out.println("username : " + username);
+        System.out.println("password : " + password);
         ResponseEntity<Object> response;
         Object result = userService.login(username,password);
         response = new ResponseEntity<>(result, HttpStatus.OK);
@@ -63,12 +71,15 @@ public class UserController {
 
     @GetMapping("/getUserPoints")
     public ResponseEntity<Object> getUserPoints(@RequestParam("username") String username){
+        System.out.println("getUserPoints : ");
+        System.out.println("username : " + username);
         Object result = userService.getUserPoints(username);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("/getAllUsersPoints")
     public ResponseEntity<Object> getAllUsersPoints(){
+        System.out.println("getAllUsersPoints");
         Object result = userService.getAllUsersPoints();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
