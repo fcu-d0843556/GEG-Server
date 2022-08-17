@@ -45,6 +45,15 @@ public class UserEventService {
         return userEventDao.findAll();
     }
 
+    public List<UserEvent> getUserEventsFilterLevelPassed(String username){
+        userEventDao.setUser(username);
+        return userEventDao.findByEventName("level_passed");
+    }
+    
+    public List<UserEvent> getUserEventFilterConsoleInput(String username){
+        userEventDao.setUser(username);
+        return userEventDao.findByEventName("console_input");
+    }
     /**
      * Get student ip address
      * @return ip address with string

@@ -109,6 +109,7 @@ public class UserService {
             }
             levelPassedCounts = levelPassed.size();
         }
+        // System.out.println(levelPassedCounts+", "+achievementCounts+", "+username);
         return new UserPoints(levelPassedCounts,achievementCounts,username);
     }
 
@@ -125,6 +126,7 @@ public class UserService {
 
         for(int i =0 ; i < allUsers.size() ; i++){
             UserPoints userPoints = (UserPoints)getUserPoints(allUsers.get(i).getUsername());
+            System.out.println(userPoints.getLevelPassedCounts() + "," +userPoints.getGamePoints() + "," +userPoints.getUser());
             allUsersPoints.add(userPoints);
             Collections.sort(allUsersPoints);
         }

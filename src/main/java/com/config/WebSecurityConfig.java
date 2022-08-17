@@ -26,8 +26,8 @@ public class WebSecurityConfig {
 
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/user/login","/user/createUser")
-                        .permitAll() // // dont authenticate login, register
+                    .antMatchers("/user/login","/user/createUser","/level/getLevelLeaderboard","/user/getAllUsersPoints")
+                        .permitAll() // // dont authenticate login, register, LevelLeaderboard
                     .antMatchers("/activity/**")
                         .hasRole("ADMIN")
                     .anyRequest() // all other requests need to be authenticated

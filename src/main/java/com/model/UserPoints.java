@@ -23,6 +23,7 @@ public class UserPoints implements Comparable<UserPoints> {
         achievementPoints = ((1 + achievementCounts) * achievementCounts ) / 2;
         gamePoints = levelPoints + achievementPoints;
         this.user = user;
+        
     }
 
     public int getGamePoints(){ return gamePoints; }

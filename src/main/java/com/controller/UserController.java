@@ -41,10 +41,10 @@ public class UserController {
             @RequestParam("username") String username,
             @RequestParam("password") String password
     ) {
-        System.out.println("createUser : ");
-        System.out.println("name : " + name);
-        System.out.println("username : " + username);
-        System.out.println("password : " + password);
+        // System.out.println("createUser : ");
+        // System.out.println("name : " + name);
+        // System.out.println("username : " + username);
+        // System.out.println("password : " + password);
         ResponseEntity<Object> response;
         try {
             Object result = userService.createUser(name,username,password);
@@ -61,11 +61,12 @@ public class UserController {
             @RequestParam("password") String password
     ) {
         System.out.println("login : ");
-        System.out.println("username : " + username);
-        System.out.println("password : " + password);
+        // System.out.println("username : " + username);
+        // System.out.println("password : " + password);
         ResponseEntity<Object> response;
         Object result = userService.login(username,password);
         response = new ResponseEntity<>(result, HttpStatus.OK);
+        // System.out.println("response : " + response);
         return response;
     }
 

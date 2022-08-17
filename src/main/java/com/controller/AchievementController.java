@@ -18,17 +18,17 @@ public class AchievementController {
     @PostMapping("logAchievement")
     public ResponseEntity<Object> logAchievement(@RequestParam("username") String username,
                                                  @RequestParam("achievement") String achievement) {
-        System.out.println("logAchievement : ");
-        System.out.println("username : " + username);
-        System.out.println("achievement : " + achievement);
+        // System.out.println("logAchievement : ");
+        // System.out.println("username : " + username);
+        // System.out.println("achievement : " + achievement);
         Object result = achievementService.logAchievement(username, achievement);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("getUserAchievements")
     public ResponseEntity<Object> getUserAchievements(@RequestParam("username") String username) {
-        System.out.println("getUserAchievements : ");
-        System.out.println("username : " + username);
+        // System.out.println("getUserAchievements : ");
+        // System.out.println("username : " + username);
         Object result = achievementService.getUserAchievements(username);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
