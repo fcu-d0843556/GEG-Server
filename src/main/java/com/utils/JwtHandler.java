@@ -38,7 +38,7 @@ public class JwtHandler {
     String jws = Jwts.builder().setClaims(claims).setAudience(subject).setIssuer("GitEducationGame")
             .setExpiration(new Date((new Date()).getTime() +  JWT_TOKEN_VALIDITY))
             .setId(UUID.randomUUID().toString()).signWith(key).compact(); // just an example id
-    System.out.println("generateToken jws: " + jws);
+    // System.out.println("generateToken jws: " + jws);
     return jws;
   }
 

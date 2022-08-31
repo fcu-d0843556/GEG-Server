@@ -65,7 +65,7 @@ public class AchievementRecordDao implements BaseDao {
     }
 
     private AchievementRecord getAchievement(String filterKey,Object filterValue){
-        System.out.println("AchievementRecordDao getAchievement");
+        // System.out.println("AchievementRecordDao getAchievement");
         List<Document> achievementRecordDocument = mongoDb.getCollection(CollectionNameHolder.get(), filterKey,filterValue);
         if(achievementRecordDocument != null){
             Document doc = achievementRecordDocument.get(0);

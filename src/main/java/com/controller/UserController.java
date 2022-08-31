@@ -22,13 +22,13 @@ public class UserController {
 
     @GetMapping("/getAllUser")
     public ResponseEntity<Object> getAllUser() {
-        System.out.println("getAllUser");
+        // System.out.println("getAllUser");
         ResponseEntity<Object> response;
         try {
             List<User> result = userService.findAll();
             response = new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception error) {
-            System.out.println(error.getMessage());
+            // System.out.println(error.getMessage());
             response = new ResponseEntity<>(error.getMessage(), HttpStatus.FORBIDDEN);
         }
 
@@ -60,7 +60,7 @@ public class UserController {
             @RequestParam("username") String username,
             @RequestParam("password") String password
     ) {
-        System.out.println("login : ");
+        // System.out.println("login : ");
         // System.out.println("username : " + username);
         // System.out.println("password : " + password);
         ResponseEntity<Object> response;
@@ -72,15 +72,15 @@ public class UserController {
 
     @GetMapping("/getUserPoints")
     public ResponseEntity<Object> getUserPoints(@RequestParam("username") String username){
-        System.out.println("getUserPoints : ");
-        System.out.println("username : " + username);
+        // System.out.println("getUserPoints : ");
+        // System.out.println("username : " + username);
         Object result = userService.getUserPoints(username);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("/getAllUsersPoints")
     public ResponseEntity<Object> getAllUsersPoints(){
-        System.out.println("getAllUsersPoints");
+        // System.out.println("getAllUsersPoints");
         Object result = userService.getAllUsersPoints();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

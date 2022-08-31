@@ -74,7 +74,7 @@ public class UserService {
             return new LoginResult(false,"","cannot find user");
         }
         if(result){
-            System.out.println( username + " login success");
+            // System.out.println( username + " login success");
             return new LoginResult(true,jwtHandler.generateToken(username),"login success");
         }
         else{
@@ -126,7 +126,7 @@ public class UserService {
 
         for(int i =0 ; i < allUsers.size() ; i++){
             UserPoints userPoints = (UserPoints)getUserPoints(allUsers.get(i).getUsername());
-            System.out.println(userPoints.getLevelPassedCounts() + "," +userPoints.getGamePoints() + "," +userPoints.getUser());
+            // System.out.println(userPoints.getLevelPassedCounts() + "," +userPoints.getGamePoints() + "," +userPoints.getUser());
             allUsersPoints.add(userPoints);
             Collections.sort(allUsersPoints);
         }
